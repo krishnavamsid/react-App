@@ -1,0 +1,20 @@
+WHY React Was Introduced? (The Problem) ?
+// Facebook's News Feed 2011
+// - Millions of users
+// - Real-time updates
+// - Complex UI interactions
+// - Data changing constantly
+
+// Issues they faced:
+// 1. ❌ Data/UI sync issues
+// 2. ❌ Performance degradation
+// 3. ❌ Memory leaks
+// 4. ❌ Hard to add new features
+// 5. ❌ Complicated event handling
+
+// Example: Facebook chat
+// - Messages appear in multiple places
+// - Online status updates
+// - Notification counters
+// - Typing indicators
+// ALL needed to stay in sync!
