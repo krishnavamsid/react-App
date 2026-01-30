@@ -21,15 +21,15 @@ TOY ROOM (DOM)
 ├── 📦 Storage Box (DocumentFragment)
 └── 📋 Room Blueprint (Document)
 ->Browser Builds a FAMILY TREE in Memory
-          DOCUMENT (Grandparent)
+          DOCUMENT (Grandparent) -> 9
               |
-           <html> (Parent)
+           <html> (Parent) -> 1
            /     \
-     <head>     <body> (Children)
+     <head>     <body> (Children) ->1
        |          /  \
-  <title>      <h1>  <p> (Grandchildren)
+  <title>      <h1>  <p> (Grandchildren) ->1
      |           |     |
-  "My Page"   "Hello" "Welcome!" (Great-grandchildren)
+  "My Page"   "Hello" "Welcome!" (Great-grandchildren) ->3
 Each item in the tree = "NODE" (family member)
 ->DOM in One Picture
           YOU (JavaScript)
@@ -75,3 +75,29 @@ EventTarget (Root)
     ├── EntityReference (5)    // Deprecated
     ├── Entity (6)             // Deprecated
     └── Notation (12)          // Deprecated
+Nodes tree daily used node:
+1 = ELEMENT    → 🏗️  Building blocks (has tagName)
+3 = TEXT       → 📝  Content (has nodeValue)
+8 = COMMENT    → 💬  Notes (has nodeValue)
+9 = DOCUMENT   → 👑  Root (special methods)
+11 = FRAGMENT  → 📦  Temporary box
+
+Remember: 1+3=4 (Element+Text=basic content)
+          9+11=20 (Document+Fragment=DOM magic)
+
+When to Use What:
+Need to show something? → Element (1) + Text (3)
+Need to hide notes? → Comment (8)
+Need to batch updates? → DocumentFragment (11)
+Need to access page? → Document (9)
+
+
+// QUIZ: What are the node types?
+const div = document.createElement('div');
+div.innerHTML = 'Hello <!-- comment --> World';
+
+// Answer:
+// div.nodeType = 1 (ELEMENT)
+// div.childNodes[0].nodeType = 3 (TEXT) "Hello "
+// div.childNodes[1].nodeType = 8 (COMMENT) " comment "
+// div.childNodes[2].nodeType = 3 (TEXT) " World"
