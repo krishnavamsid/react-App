@@ -1,0 +1,2 @@
+What is rendering in React?
+Rendering in React is the process of converting a component’s state and props into UI elements (React elements) and then updating the DOM to reflect that UI.
