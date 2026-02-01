@@ -57,3 +57,40 @@ Assign priority levels to updates
 How does Fiber improve rendering performance?
 React Fiber improves rendering performance by breaking rendering work into small units,
 prioritizing updates, and allowing rendering to pause, resume, or discard work to keep the UI responsive.
+
+10.How does Server-Side Rendering (SSR) change the rendering flow and CSR client side rendering?
+Server-Side Rendering (SSR) changes the rendering flow by rendering React components to HTML on the server first, 
+sending that HTML to the browser, and then “hydrating” it so React takes control on the client.
+
+CSR Flow
+Browser requests page
+Server sends empty HTML + JS bundle
+Browser downloads JS
+React renders Virtual DOM → creates DOM
+UI appears
+
+SSR Flow
+Browser requests page
+Server renders React components → generates HTML string
+HTML sent to browser → page visible immediately
+Browser downloads JS → hydrates HTML → page becomes interactive
+
+CSR renders React components entirely in the browser leading to slower initial load but fast navigation,
+while SSR renders HTML on the server for faster first paint and better SEO, followed by client-side hydration to enable interactivity.
+SSR is always better than CSR”
+✔ Depends on SEO needs, performance, and app type
+
+❌ “CSR is dead”
+✔ CSR is perfect for apps with lots of client interactivity
+
+
+what is a hydrating in react ?
+Hydration in React is the process of attaching React’s event listeners and internal state to the HTML 
+that was pre-rendered on the server (SSR) so the page becomes fully interactive on the client
+Why hydration exists
+In Server-Side Rendering (SSR):
+React components are rendered on the server → converted to HTML
+The browser receives fully-rendered HTML → page visible immediately
+BUT server-rendered HTML is static → buttons don’t work, forms are not interactive
+React needs to “take over” the HTML → add event listeners, manage state
+✅ This process is called hydration
