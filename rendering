@@ -1,17 +1,26 @@
 1.What is rendering in React?
-Rendering in React is the process of converting a component’s state and props into UI elements (React elements) and then updating the DOM to reflect that UI.
-Browser HTML rendering directly parses HTML and updates the DOM immediately, while React rendering first creates a Virtual DOM, compares changes using reconciliation, 
+Rendering in React is the process of converting a 
+component’s state and props into UI elements (React elements) 
+and then updating the DOM to reflect that UI.
+Browser HTML rendering directly parses HTML and updates the 
+DOM immediately, while React rendering first creates a Virtual DOM,
+compares changes using reconciliation, 
 and updates only the necessary parts of the real DOM
 
 2.What happens when a React component renders?
-When a React component renders, React calls the component function, creates a Virtual DOM representation of the UI, 
-compares it with the previous render, and updates only the necessary parts of the real DOM.
+When a React component renders,
+React calls the component function, 
+creates a Virtual DOM representation of the UI, 
+compares it with the previous render,
+and updates only the necessary parts of the real DOM.
 
 When a React component renders, React executes the component, builds a new Virtual DOM tree,
 reconciles it with the previous tree, and commits only the minimal necessary changes to the real DOM.
 
 3.What triggers a re-render in React?
-A React component re-renders when its state, props, or context change, or when its parent re-renders, causing React to re-execute the component function.
+A React component re-renders when its state, 
+props, or context change, or when its parent re-renders, 
+causing React to re-execute the component function.
 
 4.what  ia props?
 Props are immutable inputs passed from parent to child that determine a component’s rendered output, 
@@ -37,15 +46,21 @@ Can happen many times
 
 
 7.What is reconciliation in React?
-Reconciliation is the process by which React compares the new Virtual DOM tree with the previous one to determine the minimal set of changes needed to update the real DOM.
+Reconciliation is the process by which React compares the 
+new Virtual DOM tree with the previous one to determine 
+the minimal set of changes needed to update the real DOM.
 
 8.What is Virtual DOM in React?
-Virtual DOM is an in-memory JavaScript representation of the UI that allows React to efficiently diff changes and update only the necessary parts of the real DOM.
+Virtual DOM is an in-memory JavaScript representation of the 
+UI that allows React to efficiently diff changes and update 
+only the necessary parts of the real DOM.
 
 9.What is React Fiber?
-React Fiber is React’s internal rendering architecture that breaks rendering work into small units so updates can be paused,
+React Fiber is React’s internal rendering architecture 
+that breaks rendering work into small units so updates can be paused,
 prioritized, and resumed, enabling concurrent rendering and better performance.
-React Fiber was introduced to make rendering interruptible and priority-based, so React can keep the UI responsive even in large, complex applications.
+React Fiber was introduced to make rendering interruptible
+and priority-based, so React can keep the UI responsive even in large, complex applications.
 
 Why Fiber was needed ?
 React needed to:
@@ -94,3 +109,38 @@ The browser receives fully-rendered HTML → page visible immediately
 BUT server-rendered HTML is static → buttons don’t work, forms are not interactive
 React needs to “take over” the HTML → add event listeners, manage state
 ✅ This process is called hydration
+
+
+What is this.props?
+this.props contains data passed from a parent component and is read-only.
+props stands for properties.
+
+What is this.state?
+this.state is an internal object used to store component-specific data that can change over time.
+
+How do you initialize state in a class component?
+Inside the constructor using this.state = {}.
+
+Why should you not modify state directly?
+Direct mutation doesn’t trigger re-rendering and breaks React’s update mechanism.
+
+What is setState()?
+A method used to update state and trigger a re-render.
+
+Difference between state and props?
+Props are external and immutable; state is internal and mutable.
+
+Why is setState() asynchronous?
+To batch multiple updates and improve performance
+
+Mounting lifecycle methods?
+constructor, render, componentDidMount.
+
+What is Mounting in React?
+Mounting is the phase in a React component’s 
+lifecycle when the component is created and inserted into the DOM for the first time.
+In simple words:
+👉 Mounting = component appears on the screen for the first time.
+
+Updating lifecycle methods?
+render, componentDidUpdate, shouldComponentUpdate.
